@@ -1,0 +1,39 @@
+:root {
+  font-size: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  background-color: steelblue;
+  color: white;
+  padding: 1em 0;
+  margin-bottom: 2em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+header nav {
+  display: flex;
+  -moz-column-gap: 0.75em;
+       column-gap: 0.75em;
+}
+header nav a {
+  text-decoration: none;
+  color: white;
+}/*# sourceMappingURL=styles.css.map */
