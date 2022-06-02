@@ -1,7 +1,9 @@
+import GameCard from "../components/GameCard";
+
 export default function Games() {
-    return(
-        <main>
-            <h1>Game Page</h1>
-        </main>
-    )
+  return (
+    <main>
+      <GameCard />;
+    </main>
+  );
 }

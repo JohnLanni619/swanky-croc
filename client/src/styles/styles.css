@@ -1,5 +1,7 @@
 :root {
   font-size: 1rem;
+  --darkest: hsl(0, 0%, 10%);
+  --dark: hsl(0, 0%, 40%);
 }
 
 * {
@@ -19,7 +21,7 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
-  background-color: steelblue;
+  background-color: var(--darkest);
   color: white;
   padding: 1em 0;
   margin-bottom: 2em;
@@ -36,4 +38,39 @@ header nav {
 header nav a {
   text-decoration: none;
   color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  gap: 2.5em;
+}
+.grid .game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5em;
+  box-shadow: 0 0 3px 1px black;
+  padding: 1em;
+  width: 400px;
+  height: 300px;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 500ms ease-in-out;
+}
+.grid .game-card:hover {
+  transform: scale(1.02);
+}
+.grid .game-card:hover > h3 {
+  opacity: 0;
+}
+.grid .game-card h3 {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.25em 0.5em;
+  color: white;
+  border-radius: 10px;
+  transition: opacity 500ms ease-in-out;
 }/*# sourceMappingURL=styles.css.map */
