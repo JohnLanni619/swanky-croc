@@ -1,15 +1,22 @@
-const { gql } = require('apollo-server')
+const { gql } = require("apollo-server");
 
 module.exports = gql`
-    type Game {
-        id: ID!
-        title: String!
-        released: String!
-        background_image: String!
-    }
+  type GameList {
+    count: Int
+    next_page: String
+    previous_page: String
+    results: [Game]!
+  }
 
-    type Query {
-        games: [Game]!
-        game(id: ID!): Game!
-    }
-`
+  type Game {
+    id: ID!
+    title: String!
+    released: String!
+    background_image: String!
+  }
+
+  type Query {
+    gamesList(page: Int): GameList
+    game(id: ID!): Game!
+  }
+`;

@@ -2,6 +2,7 @@
     font-size: 1rem;
     --darkest: hsl(0, 0%, 10%);
     --dark: hsl(0, 0%, 40%);
+    --row-spacing: 1.5em;
 }
 
 * {
@@ -22,12 +23,28 @@ header {
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
     background-color: var(--darkest);
+    background-image: url("https://tiermaker.com/images/templates/6030461601607614.jpeg");
+    background-size: contain;
     color: white;
     padding: 1em 0;
-    margin-bottom: 2em;
+    margin-bottom: var(--row-spacing);
     position: sticky;
     top: 0;
     z-index: 999;
+
+    & > * {
+        background-color: rgb(0,0,0, .9);
+        border-radius: 30px;
+    }
+
+    h1, nav {
+        padding: .5em;
+    }
+
+    .logo {
+        font-size: 5rem;
+        color: steelblue;
+    }
 
     nav {
         display: flex;
@@ -36,6 +53,38 @@ header {
         a {
             text-decoration: none;
             color: white;
+        }
+    }
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    margin-bottom: var(--row-spacing);
+
+    button {
+        border: none;
+        color: steelblue;
+        background-color: inherit;
+        padding: 1.5em;
+        border-radius: 7px;
+        cursor: pointer;
+
+        &:not([disabled]):hover > .left {
+            transform: translate(-10px);
+        }
+        &:not([disabled]):hover > .right {
+            transform: translate(10px);
+        }
+        &[disabled] {
+            color: lightgray;
+            cursor: default;
+        }
+
+        .icon {
+            font-size: 5rem;
+            transition: transform 500ms ease-in-out;
         }
     }
 }

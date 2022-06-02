@@ -2,6 +2,7 @@
   font-size: 1rem;
   --darkest: hsl(0, 0%, 10%);
   --dark: hsl(0, 0%, 40%);
+  --row-spacing: 1.5em;
 }
 
 * {
@@ -22,13 +23,26 @@ header {
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
   background-color: var(--darkest);
+  background-image: url("https://tiermaker.com/images/templates/6030461601607614.jpeg");
+  background-size: contain;
   color: white;
   padding: 1em 0;
-  margin-bottom: 2em;
+  margin-bottom: var(--row-spacing);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 999;
+}
+header > * {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 30px;
+}
+header h1, header nav {
+  padding: 0.5em;
+}
+header .logo {
+  font-size: 5rem;
+  color: steelblue;
 }
 header nav {
   display: flex;
@@ -38,6 +52,35 @@ header nav {
 header nav a {
   text-decoration: none;
   color: white;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin-bottom: var(--row-spacing);
+}
+.button-container button {
+  border: none;
+  color: steelblue;
+  background-color: inherit;
+  padding: 1.5em;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.button-container button:not([disabled]):hover > .left {
+  transform: translate(-10px);
+}
+.button-container button:not([disabled]):hover > .right {
+  transform: translate(10px);
+}
+.button-container button[disabled] {
+  color: lightgray;
+  cursor: default;
+}
+.button-container button .icon {
+  font-size: 5rem;
+  transition: transform 500ms ease-in-out;
 }
 
 .grid {
