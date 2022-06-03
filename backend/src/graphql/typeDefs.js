@@ -16,7 +16,7 @@ module.exports = gql`
   }
 
   type Query {
-    gamesList(page: Int): GameList
+    gamesList(page: Int, page_size: Int): GameList
     game(id: ID!): Game!
   }
 `;

@@ -1,8 +1,8 @@
 module.exports = {
   Query: {
-    gamesList: async (parent, { page }, { dataSources }) => {
+    gamesList: async (parent, { page, page_size }, { dataSources }) => {
       try {
-        const allGames = await dataSources.videogameApi.getAllGames(page);
+        const allGames = await dataSources.videogameApi.getAllGames(page, page_size);
         return {
           count: allGames.count,
           next_page: allGames.next,

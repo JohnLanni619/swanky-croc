@@ -6,10 +6,11 @@ class videogameApi extends RESTDataSource {
     this.baseURL = "https://api.rawg.io/api/";
   }
 
-  async getAllGames(pageNumber) {
+  async getAllGames(pageNumber, pageSize) {
     return this.get("/games", {
       key: this.context.token,
       page: pageNumber,
+      page_size: pageSize
     });
   }
 
