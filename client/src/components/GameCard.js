@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
-import { GiConsoleController } from "react-icons/gi";
+import loadingIcon from '../assets/Loading.png';
 
 const GET_GAMES = gql`
   query getAllGames($page: Int, $pageSize: Int) {
@@ -24,14 +24,22 @@ export default function GameCard() {
   let [pageSize, setPageSize] = useState(40)
   let { loading, error, data } = useQuery(GET_GAMES, {
     variables: {
-      page: page,
-      pageSize: pageSize
+      page: page
+      // pageSize: pageSize
     },
     notifyOnNetworkStatusChange: true,
   });
 
-  if (loading) return <GiConsoleController className="loading-icon" />
-  if (error) return <p>Error :(</p>
+  if (loading) return (
+    <div class="loading-container">
+      <div>
+        <h3>More Games are Loading</h3>
+        <img src={loadingIcon} width="600px" alt="loading-image" />
+      </div>
+    </div>
+  )
+  if (error) {
+    return <p>Error :(</p>}
 
   let maxPage = Math.round(data.gamesList.count / pageSize)
 
@@ -39,6 +47,7 @@ export default function GameCard() {
     <div className="container">
       <div className="button-container">
         <button
+          className="arrow"
           onClick={() => {
             setPage(page - 1);
           }}
@@ -46,7 +55,7 @@ export default function GameCard() {
         >
           <AiOutlineDoubleLeft className="icon left" />
         </button>
-        <div>
+        <div className="form-container">
           <h3>{`Page ${page} of ${maxPage}`}</h3>
           <form onSubmit={(e) => {
             e.preventDefault(); 
@@ -57,6 +66,7 @@ export default function GameCard() {
           </form>
         </div>
         <button
+          className="arrow"
           onClick={() => {
             setPage(page + 1);
           }}

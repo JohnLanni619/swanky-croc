@@ -1,8 +1,10 @@
 :root {
     font-size: 1rem;
+    --logo: hsl(252,47%,59%);
     --darkest: hsl(0, 0%, 10%);
     --dark: hsl(0, 0%, 40%);
     --row-spacing: 1.5em;
+
 }
 
 * {
@@ -18,13 +20,16 @@ body {
     font-family: sans-serif;
 }
 
+.container {
+    padding: 1em;
+}
+
 header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
-    background-color: var(--darkest);
-    background-image: url("https://tiermaker.com/images/templates/6030461601607614.jpeg");
-    background-size: contain;
+    background-color: rgb(43,10,5);
+    background-image: url('../assets/Banner.png');
     color: white;
     padding: 1em 0;
     margin-bottom: var(--row-spacing);
@@ -32,23 +37,14 @@ header {
     top: 0;
     z-index: 999;
 
-    & > * {
-        background-color: rgb(0,0,0, .9);
-        border-radius: 30px;
-    }
-
-    h1, nav {
-        padding: .5em;
-    }
-
     .logo {
-        font-size: 5rem;
-        color: steelblue;
+        width: 125px;
     }
 
     nav {
         display: flex;
         column-gap: .75em;
+        align-items: center;
 
         a {
             text-decoration: none;
@@ -63,9 +59,25 @@ header {
     place-items: center;
     margin-bottom: var(--row-spacing);
 
-    button {
+    .form-container, .form-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: .5em;
+
+        button {
+            background-color: var(--logo);
+            color: white;
+            border: none;
+            padding: .5em 1em;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+    }
+
+    button.arrow {
         border: none;
-        color: steelblue;
+        color: var(--logo);
         background-color: inherit;
         padding: 1.5em;
         border-radius: 7px;
@@ -91,7 +103,7 @@ header {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
     place-items: center;
     gap: 2.5em;
 
@@ -127,3 +139,29 @@ header {
         }
     }
 }
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        text-align: center;
+    }
+
+    img {
+        margin-top: .75em;
+        width: 200px;
+        border-radius: 500px;
+        animation: rotation 3s infinite linear;
+    }
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

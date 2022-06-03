@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
-import { GiConsoleController } from "react-icons/gi";
+import logo from '../assets/LogoNW.png';
 
 export default function Nav() {
   return (
     <header>
-      <GiConsoleController className="logo" />
-      <h1>GameDB</h1>
+      <img src={logo} alt="logo" className="logo" />
+      <h1>The GameDB</h1>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/games">Games</Link>
+        <p>Categories</p>
+        <p>Something else</p>
       </nav>
     </header>
   );

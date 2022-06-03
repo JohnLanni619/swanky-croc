@@ -1,5 +1,6 @@
 :root {
   font-size: 1rem;
+  --logo: hsl(252,47%,59%);
   --darkest: hsl(0, 0%, 10%);
   --dark: hsl(0, 0%, 40%);
   --row-spacing: 1.5em;
@@ -18,13 +19,16 @@ body {
   font-family: sans-serif;
 }
 
+.container {
+  padding: 1em;
+}
+
 header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
-  background-color: var(--darkest);
-  background-image: url("https://tiermaker.com/images/templates/6030461601607614.jpeg");
-  background-size: contain;
+  background-color: rgb(43, 10, 5);
+  background-image: url("../assets/Banner.png");
   color: white;
   padding: 1em 0;
   margin-bottom: var(--row-spacing);
@@ -33,21 +37,14 @@ header {
   top: 0;
   z-index: 999;
 }
-header > * {
-  background-color: rgba(0, 0, 0, 0.9);
-  border-radius: 30px;
-}
-header h1, header nav {
-  padding: 0.5em;
-}
 header .logo {
-  font-size: 5rem;
-  color: steelblue;
+  width: 125px;
 }
 header nav {
   display: flex;
   -moz-column-gap: 0.75em;
        column-gap: 0.75em;
+  align-items: center;
 }
 header nav a {
   text-decoration: none;
@@ -60,32 +57,46 @@ header nav a {
   place-items: center;
   margin-bottom: var(--row-spacing);
 }
-.button-container button {
+.button-container .form-container, .button-container .form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5em;
+}
+.button-container .form-container button, .button-container .form-container form button {
+  background-color: var(--logo);
+  color: white;
   border: none;
-  color: steelblue;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.button-container button.arrow {
+  border: none;
+  color: var(--logo);
   background-color: inherit;
   padding: 1.5em;
   border-radius: 7px;
   cursor: pointer;
 }
-.button-container button:not([disabled]):hover > .left {
+.button-container button.arrow:not([disabled]):hover > .left {
   transform: translate(-10px);
 }
-.button-container button:not([disabled]):hover > .right {
+.button-container button.arrow:not([disabled]):hover > .right {
   transform: translate(10px);
 }
-.button-container button[disabled] {
+.button-container button.arrow[disabled] {
   color: lightgray;
   cursor: default;
 }
-.button-container button .icon {
+.button-container button.arrow .icon {
   font-size: 5rem;
   transition: transform 500ms ease-in-out;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
   place-items: center;
   gap: 2.5em;
 }
@@ -116,4 +127,38 @@ header nav a {
   color: white;
   border-radius: 10px;
   transition: opacity 500ms ease-in-out;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading-container div {
+  text-align: center;
+}
+.loading-container img {
+  margin-top: 0.75em;
+  width: 200px;
+  border-radius: 500px;
+  -webkit-animation: rotation 3s infinite linear;
+          animation: rotation 3s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }/*# sourceMappingURL=styles.css.map */
