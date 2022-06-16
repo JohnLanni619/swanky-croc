@@ -77,7 +77,7 @@ body {
 .home .content {
   display: flex;
   justify-content: center;
-  background-color: lightgray;
+  padding-bottom: 2em;
 }
 .home .content h1, .home .content h2, .home .content h3 {
   color: var(--logo);
@@ -122,6 +122,7 @@ body {
   box-shadow: 0 0 3px 1px black;
   padding: 1em;
   background-color: white;
+  border-radius: 10px;
 }
 .home .content .layout .browse {
   display: flex;

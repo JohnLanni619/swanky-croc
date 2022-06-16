@@ -1,0 +1,26 @@
+footer {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  width: 75%;
+  margin: auto;
+  margin-bottom: 1em;
+  box-shadow: 0 0 3px 1px black;
+  border-radius: 10px;
+}
+footer h5 {
+  text-align: center;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+.grid-layout .col-1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+}/*# sourceMappingURL=footer-styles.css.map */

@@ -3,6 +3,7 @@ import platform from '../assets/platform.jpg';
 import question from '../assets/question-mark.jpg';
 import hourglass from '../assets/hourglass.jpg';
 import video from '../assets/hero-video.mp4';
+import Footer from '../components/Footer';
 
 function App() {
   return (
@@ -60,7 +61,7 @@ function App() {
           </div>
         </div>
       </div>
-
+      <Footer />
     </div>
   );
 }
