@@ -9,7 +9,7 @@ function App() {
   return (
     <div className='home'>
 
-      <div class="video-container">
+      <div className="video-container">
         <div className="overlay"></div>
         <div className="video-content">
           <h1>Welcome to The GameDB</h1>
@@ -20,8 +20,8 @@ function App() {
         </video>
       </div>
 
-      <div class="content">
-        <div class="layout">
+      <div className="content">
+        <div className="layout">
           <div className='split-column'>
             <p>
               Here at The GameDB, our goal is to introduce to games you haven't played before. Whether it's browsing through our extensive museum of gaming history
@@ -36,7 +36,7 @@ function App() {
               <img src={question} alt="game of the month" />
             </a>
           </div>
-          <div class="browse">
+          <div className="browse">
             <h2>Browse the Collection</h2>
             <h3>Search By</h3>
             <div className="sort-by">

@@ -22,10 +22,14 @@ module.exports = {
       try {
         const game = await dataSources.videogameApi.getGameById(id);
         return {
-          id: game.id,
+          ...game,
           title: game.name,
-          released: game.released,
-          background_image: game.background_image,
+          platforms: game.platforms.map( (platform) => {
+            return {
+              platform_id: platform.platform.id,
+              platform_name: platform.platform.name
+            }
+          }) 
         };
       } catch (error) {
         throw error;

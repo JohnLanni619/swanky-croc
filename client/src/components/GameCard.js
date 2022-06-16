@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 import Loading from "./Loading";
 
@@ -71,13 +72,15 @@ export default function GameCard() {
       <div className="grid">
         {data.gamesList.results.map((game) => {
           return (
-            <div
-              key={game.id}
-              style={{ backgroundImage: `url(${game.background_image})` }}
-              className="game-card"
-            >
-              <h3>{game.title}</h3>
-            </div>
+            <Link to={game.id}>
+              <div
+                key={game.id}
+                style={{ backgroundImage: `url(${game.background_image})` }}
+                className="game-card"
+              >
+                <h3>{game.title}</h3>
+              </div>
+            </Link>
           );
         })}
       </div>

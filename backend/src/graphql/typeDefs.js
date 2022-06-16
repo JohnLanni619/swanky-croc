@@ -13,6 +13,15 @@ module.exports = gql`
     title: String!
     released: String!
     background_image: String!
+    website: String
+    metacritic: Int
+    description: String
+    platforms: [Platform]
+  }
+
+  type Platform {
+    platform_id: ID
+    platform_name: String
   }
 
   type Query {
