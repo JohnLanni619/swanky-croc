@@ -1,7 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
-import loadingIcon from '../assets/Loading.png';
+import Loading from "./Loading";
 
 const GET_GAMES = gql`
   query getAllGames($page: Int, $pageSize: Int) {
@@ -21,27 +21,20 @@ const GET_GAMES = gql`
 
 export default function GameCard() {
   let [page, setPage] = useState(1);
-  let [pageSize, setPageSize] = useState(40)
   let { loading, error, data } = useQuery(GET_GAMES, {
     variables: {
       page: page
-      // pageSize: pageSize
     },
     notifyOnNetworkStatusChange: true,
   });
 
   if (loading) return (
-    <div class="loading-container">
-      <div>
-        <h3>More Games are Loading</h3>
-        <img src={loadingIcon} width="600px" alt="loading-image" />
-      </div>
-    </div>
+    <Loading />
   )
   if (error) {
     return <p>Error :(</p>}
 
-  let maxPage = Math.round(data.gamesList.count / pageSize)
+  let maxPage = Math.round(data.gamesList.count / 20)
 
   return (
     <div className="container">

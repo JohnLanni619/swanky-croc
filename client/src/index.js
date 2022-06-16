@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./pages/App";
 import Games from "./pages/Games";
-import Nav from "./components/Nav";
 import "./styles/styles.css";
 
 const client = new ApolloClient({
@@ -16,7 +15,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Nav />
       <ApolloProvider client={client}>
         <Routes>
           <Route path="/" element={<App />} />
