@@ -8,4 +8,3 @@ Users will be able to add games to their wishlist and will be able to add any ga
 They'll be able to view their wishlists and collections on their profile page. 
 Eventually, I'd like to add the ability to comment on each game's page, as well as a featured game each week that's displayed on the home page of 
 the website.
-It's mostly a passion project for me as I love video games and want to share that love with people all over the world.
