@@ -20,11 +20,6 @@ function App() {
         </video>
       </div>
 
-      {/* <div class="hero">
-        <h1>You have the games <br/> Play them</h1>
-        <img className="hero-image" src={collection} alt="game collection" />
-      </div> */}
-
       <div class="content">
         <div class="layout">
           <div className='split-column'>
@@ -56,6 +51,7 @@ function App() {
               <a href='/games'>
                 <h4>All Games</h4>
                 <img src={collection} alt="collection" />
+                <div className="overlay overlay-border-radius"></div>
               </a>
             </div>
           </div>

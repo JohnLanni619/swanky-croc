@@ -8,7 +8,7 @@ export default function Footer() {
                     <div>
                         <h4>Support</h4>
                         <p>Help Center</p>
-                        <p>API Status</p>
+                        <a href="https://twitter.com/rawgtheworld" target="__blank">Api Status</a>
                         <p>Contact Us</p>
                         <p>Documentation</p>
                     </div>

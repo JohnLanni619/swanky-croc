@@ -25,20 +25,23 @@ body {
   display: flex;
   flex-direction: column;
 }
-.home h2 {
-  font-size: 2rem;
-  text-align: center;
-}
-.home .video-container {
-  position: relative;
-}
-.home .video-container .overlay {
+.home .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+}
+.home .overlay-border-radius {
+  border-radius: 10px;
+}
+.home h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+.home .video-container {
+  position: relative;
 }
 .home .video-container .video-content {
   position: absolute;
@@ -53,24 +56,6 @@ body {
 .home .video-container video {
   width: 100%;
   height: 40vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.home .hero {
-  position: relative;
-  background-color: lightgray;
-}
-.home .hero h1 {
-  position: absolute;
-  top: 5em;
-  left: 5em;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 1em;
-}
-.home .hero .hero-image {
-  width: 100%;
-  height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -119,7 +104,7 @@ body {
 .home .content .layout .split-column p {
   font-size: 1.5rem;
   max-width: 65ch;
-  box-shadow: 0 0 3px 1px black;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.84);
   padding: 1em;
   background-color: white;
   border-radius: 10px;
@@ -145,15 +130,15 @@ body {
 }
 .home .content .layout .browse .sort-by h4 {
   position: absolute;
-  top: 0.25em;
-  left: 150px;
+  top: 0.5em;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   font-size: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 0.25em;
-  border-radius: 10px;
   color: white;
   font-weight: bold;
   transition: transform 500ms ease-in-out;
+  z-index: 2;
 }
 .home .content .layout .browse .sort-by img {
   width: 400px;
