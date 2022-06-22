@@ -1,9 +1,46 @@
-// This will be the div that gets the screenshot data from the api. Will be displayed under the img in the SingleGame.js page. img will change when clicked on.
+import { gql, useQuery } from "@apollo/client";
 
-export default function Screenshot() {
+const GET_GAMES = gql`
+  query Query($screenshotListId: ID!) {
+  screenshotList(id: $screenshotListId) {
+    count
+    next
+    previous
+    list {
+      screenshot_id
+      width
+      image
+      height
+      is_deleted
+    }
+  }
+}
+`;
+
+export default function Screenshot({id, parentCallback}) {
+    let { loading, error, data } = useQuery(GET_GAMES, {
+        variables: {
+            screenshotListId: id
+        },
+        notifyOnNetworkStatusChange: true,
+      });
+
+    if (loading) return;
+    if (error) return (
+        <p>{error.message}</p>
+    )
+
+    function onTrigger(event) {
+        return parentCallback(event.target.currentSrc)
+    }
+
     return (
-        <div>
-            
+        <div className="grid-auto-flow snaps-inline">
+            {data.screenshotList.list.map( (screenshot) => {
+                return (
+                    <img className="grid-item" onMouseEnter={onTrigger} id="screenshot" src={screenshot.image} alt="screenshot" width="100px" />
+                )
+            })}
         </div>
     )
 }

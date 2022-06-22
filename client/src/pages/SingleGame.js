@@ -1,7 +1,9 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 import Loading from "../components/Loading";
 import Nav from '../components/Nav';
+import Screenshot from "../components/Screenshots";
 
 const GET_GAME = gql`
     query getGameById($gameId: ID!) {
@@ -22,12 +24,15 @@ const GET_GAME = gql`
 `
 
 export default function SingleGame() {
+    const [image, setImage] = useState("")
+
     let { id } = useParams();
 
     const { loading, error, data } = useQuery(GET_GAME, {
         variables: {
             gameId: id 
-        }
+        },
+        onCompleted: data => setImage(data.game.background_image)
     });
 
     if (loading) return (
@@ -38,15 +43,23 @@ export default function SingleGame() {
     }
 
     const { background_image, description, metacritic, released, title, website } = data.game;
-    
+
+    function handleCallback(childData) {
+        setImage(childData)
+    }
+
+ 
     return (
         <>
             <Nav />
             <div id="single-game-card">
                 <h1 className="title">{title}</h1>
-                <div class="layout">
-                    <div class="card">
-                        <img src={background_image} alt="background" width="500px"/>
+                <div className="layout">
+                    <div className="card">
+                        <div className="image-container">
+                            <img selected src={image} alt="background" width="500px"/>
+                            <Screenshot id={id} parentCallback={handleCallback} />
+                        </div>
                         <p id="description" className="description">{description.replaceAll(/<p>|<\/p>|<br \/>/g,"")}</p>
                     </div>
                 </div>
@@ -54,5 +67,4 @@ export default function SingleGame() {
         </>
         
     );
-    
 }

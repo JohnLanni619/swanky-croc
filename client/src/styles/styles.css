@@ -295,8 +295,28 @@ header nav a {
 #single-game-card .card .description {
   max-width: 100ch;
 }
-#single-game-card .card img {
-  box-shadow: 0px 0px 0px 0.5rem var(--logo);
+#single-game-card .grid-auto-flow {
+  display: grid;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 100px;
+  padding: 0.5em;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  width: 500px;
+}
+#single-game-card .grid-auto-flow .grid-item {
+  background-color: white;
+}
+#single-game-card .snaps-inline {
+  -ms-scroll-snap-type: inline mandatory;
+      scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1em;
+}
+#single-game-card .snaps-inline > * {
+  scroll-snap-align: start;
+  outline: none;
 }
 
 @-webkit-keyframes rotation {

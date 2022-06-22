@@ -8,6 +8,13 @@ module.exports = gql`
     results: [Game]!
   }
 
+  type ScreenshotList {
+    count: Int
+    next: String
+    previous: String
+    list: [Screenshot]
+  }
+
   type Game {
     id: ID!
     title: String!
@@ -19,29 +26,22 @@ module.exports = gql`
     platforms: [Platform]
   }
 
-  type Platform {
-    platform_id: ID
-    platform_name: String
-  }
-
-  type ScreenshotList {
-    count: Int
-    next: String
-    previous: String
-    results: [Screenshot]
-  }
-
   type Screenshot {
     screenshot_id: ID
     image: String!
     width: Int
     height: Int
-    is_deleted: Boolean
+    is_deleted: String
+  }
+
+  type Platform {
+    platform_id: ID
+    platform_name: String
   }
 
   type Query {
     gamesList(page: Int, page_size: Int): GameList
     game(id: ID!): Game!
-    screenshots(id: ID!): ScreenshotList
+    screenshotList(id: ID!): ScreenshotList
   }
 `;
