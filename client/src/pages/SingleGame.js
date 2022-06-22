@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
+import Nav from '../components/Nav';
 
 const GET_GAME = gql`
     query getGameById($gameId: ID!) {
@@ -39,11 +40,19 @@ export default function SingleGame() {
     const { background_image, description, metacritic, released, title, website } = data.game;
     
     return (
-        <div>
-            <img src={background_image} alt="background" width="100%"/>
-            <h1>{title}</h1>
-            <p id="description">{description.replaceAll(/<p>|<\/p>|<br \/>/g,"")}</p>
-        </div>
+        <>
+            <Nav />
+            <div id="single-game-card">
+                <h1 className="title">{title}</h1>
+                <div class="layout">
+                    <div class="card">
+                        <img src={background_image} alt="background" width="500px"/>
+                        <p id="description" className="description">{description.replaceAll(/<p>|<\/p>|<br \/>/g,"")}</p>
+                    </div>
+                </div>
+            </div>
+        </>
+        
     );
     
 }

@@ -19,6 +19,12 @@ class videogameApi extends RESTDataSource {
       key: this.context.token,
     });
   }
+
+  async getScreenshots(id) {
+    return this.get(`/games/${id}/screenshots`, {
+      key: this.context.token
+    });
+  }
 }
 
 module.exports = videogameApi;

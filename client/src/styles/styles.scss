@@ -47,8 +47,6 @@ body {
     .video-container {
         position: relative;
 
-        
-
         .video-content {
             position: absolute;
             width: 100%;
@@ -108,7 +106,7 @@ body {
                 column-gap: 1em;
 
                 p {
-                    font-size: 1.5rem;
+                    font-size: 1.25rem;
                     max-width: 65ch;
                     box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.84);
                     padding: 1em;
@@ -183,7 +181,7 @@ header {
     z-index: 999;
 
     .logo {
-        width: 125px;
+        width: 100px;
     }
 
     nav {
@@ -300,6 +298,37 @@ header {
         border-radius: 500px;
         animation: rotation 3s infinite linear;
     }
+}
+
+// Single Game Page Styling
+#single-game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+
+    .layout {
+        width: 90%;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1em;
+        padding: .5rem;
+        flex-wrap: wrap;
+
+        .description {
+            max-width: 100ch;
+        }
+
+        img {
+            box-shadow: 0px 0px 0px .5rem var(--logo);
+        }
+    }
+
+    
 }
 
 @keyframes rotation {

@@ -35,5 +35,24 @@ module.exports = {
         throw error;
       }
     },
+    screenshots: async (parent, { id }, { dataSources }) => {
+      try {
+        const screenshots = await dataSources.videogameApi.getScreenshots(id);
+        return {
+          count: screenshots.count,
+          next: screenshots.next,
+          previous: screenshots.previous,
+          results: screenshots.results.map((screenshot) => ({
+            screenshot_id: screenshot.id,
+            image: screenshot.image,
+            width: screenshot.width,
+            height: screenshot.height,
+            is_deleted: screenshot.is_deleted
+          })),
+        };
+      } catch (error) {
+        throw error;
+      }
+    }
   },
 };

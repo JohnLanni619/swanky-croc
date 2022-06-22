@@ -102,7 +102,7 @@ body {
        column-gap: 1em;
 }
 .home .content .layout .split-column p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   max-width: 65ch;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.84);
   padding: 1em;
@@ -167,7 +167,7 @@ header {
   z-index: 999;
 }
 header .logo {
-  width: 125px;
+  width: 100px;
 }
 header nav {
   display: flex;
@@ -272,6 +272,31 @@ header nav a {
   border-radius: 500px;
   -webkit-animation: rotation 3s infinite linear;
           animation: rotation 3s infinite linear;
+}
+
+#single-game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+}
+#single-game-card .layout {
+  width: 90%;
+}
+#single-game-card .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+#single-game-card .card .description {
+  max-width: 100ch;
+}
+#single-game-card .card img {
+  box-shadow: 0px 0px 0px 0.5rem var(--logo);
 }
 
 @-webkit-keyframes rotation {

@@ -9,8 +9,7 @@ export default function Nav() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/games">Games</Link>
-        <p>Categories</p>
-        <p>Something else</p>
+        <Link to="/profile">User Profile</Link>
       </nav>
     </header>
   );
