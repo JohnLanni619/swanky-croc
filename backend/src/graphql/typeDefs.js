@@ -20,6 +20,7 @@ module.exports = gql`
     title: String!
     released: String!
     background_image: String!
+    background_image_additional: String
     website: String
     metacritic: Int
     description: String

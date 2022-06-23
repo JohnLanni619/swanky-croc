@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import Nav from '../components/Nav';
 import Screenshot from "../components/Screenshots";
@@ -12,6 +12,7 @@ const GET_GAME = gql`
             title
             released
             background_image
+            background_image_additional
             website
             description
             metacritic
@@ -21,7 +22,7 @@ const GET_GAME = gql`
             }
         }
     }
-`
+`;
 
 export default function SingleGame() {
     const [image, setImage] = useState("")
@@ -32,7 +33,20 @@ export default function SingleGame() {
         variables: {
             gameId: id 
         },
-        onCompleted: data => setImage(data.game.background_image)
+        onCompleted: data => {
+            setImage(data.game.background_image_additional || data.game.background_image);    
+        },
+    });
+
+    useEffect(() => {
+        let p = document.querySelector('.description')
+        if (data) {
+            p.innerHTML = data.game.description
+        };
+        let background = document.querySelector('#single-game-card');
+        if (background) {
+            background.style.backgroundImage = `url(${data.game.background_image})`
+        }
     });
 
     if (loading) return (
@@ -42,25 +56,34 @@ export default function SingleGame() {
         return <p>{error.message}</p>
     }
 
-    const { background_image, description, metacritic, released, title, website } = data.game;
+    const { metacritic, released, title, website } = data.game;
 
     function handleCallback(childData) {
         setImage(childData)
     }
 
- 
+    // let screenshot = document.querySelector('.grid-auto-flow')
+    // if (screenshot) {
+    //     screenshot.addEventListener("mouseleave", (event) => {
+    //         setImage(data.game.background_image_additional)
+    //     })
+    // }
+
     return (
         <>
             <Nav />
             <div id="single-game-card">
-                <h1 className="title">{title}</h1>
+                <div className="overlay"></div>
+                <a href={website} target="__blank">
+                    <h1 className="title">{title}</h1>
+                </a>
                 <div className="layout">
                     <div className="card">
                         <div className="image-container">
-                            <img selected src={image} alt="background" width="500px"/>
+                            <img selected src={image} alt="background" width="600px"/>
                             <Screenshot id={id} parentCallback={handleCallback} />
                         </div>
-                        <p id="description" className="description">{description.replaceAll(/<p>|<\/p>|<br \/>/g,"")}</p>
+                        <p id="description" className="description"></p>
                     </div>
                 </div>
             </div>

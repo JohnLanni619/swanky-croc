@@ -38,7 +38,7 @@ export default function Screenshot({id, parentCallback}) {
         <div className="grid-auto-flow snaps-inline">
             {data.screenshotList.list.map( (screenshot) => {
                 return (
-                    <img className="grid-item" onMouseEnter={onTrigger} id="screenshot" src={screenshot.image} alt="screenshot" width="100px" />
+                    <img key={screenshot.screenshot_id} className="grid-item screenshot" onMouseEnter={onTrigger} id="screenshot" src={screenshot.image} alt="screenshot" width="100px" />
                 )
             })}
         </div>

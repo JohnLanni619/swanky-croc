@@ -21,6 +21,36 @@ body {
     font-family: sans-serif;
 }
 
+// Nav Styling
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    background-color: rgb(43,10,5);
+    background-image: url('../assets/Banner.png');
+    color: white;
+    padding: 1em 0;
+    // margin-bottom: var(--row-spacing);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    .logo {
+        width: 100px;
+    }
+
+    nav {
+        display: flex;
+        column-gap: .75em;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+
 // Home Page Styling
 .home {
     display: flex;
@@ -162,40 +192,12 @@ body {
     }
 }
 
-
 .container {
     padding: 1em;
 }
 
-header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    place-items: center;
-    background-color: rgb(43,10,5);
-    background-image: url('../assets/Banner.png');
-    color: white;
-    padding: 1em 0;
-    margin-bottom: var(--row-spacing);
-    position: sticky;
-    top: 0;
-    z-index: 999;
 
-    .logo {
-        width: 100px;
-    }
-
-    nav {
-        display: flex;
-        column-gap: .75em;
-        align-items: center;
-
-        a {
-            text-decoration: none;
-            color: white;
-        }
-    }
-}
-
+// Game page styling
 .button-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -243,12 +245,15 @@ header {
         }
     }
 }
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
     place-items: center;
     gap: 2.5em;
+
+    a {
+        text-decoration: none;
+    }
 
     .game-card {
         display: flex;
@@ -283,6 +288,93 @@ header {
     }
 }
 
+// Single Game Page Styling
+#single-game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+    padding-top: var(--row-spacing);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+
+    & > * {
+        z-index: 10;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0,0,0, .75);
+        z-index: 1;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--logo);
+    }
+
+    .layout {
+        width: 90%;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1em;
+        padding: .5rem;
+        flex-wrap: wrap;
+
+        img {
+            aspect-ratio: 16/9;
+            box-shadow:  0px 0px 7px 1px;
+            object-fit: cover;
+        }
+
+        .description {
+            max-width: 100ch;
+            padding: 1rem;
+            color: white;
+            background-color: hsl(190,51%,9%);
+
+        }
+    }
+
+    .grid-auto-flow {
+        display: grid;
+        column-gap: 1rem;
+        grid-auto-flow: column;
+        grid-auto-columns: 100px;
+        padding: .5em;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        width: 600px;
+    
+        .grid-item {
+            background-color: white;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    }
+    
+    .snaps-inline {
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 1em;
+    }
+    
+    .snaps-inline > * {
+        scroll-snap-align: start;
+        outline: none;
+    }
+}
+
+// Loading Component Styling
 .loading-container {
     display: flex;
     justify-content: center;
@@ -298,58 +390,6 @@ header {
         border-radius: 500px;
         animation: rotation 3s infinite linear;
     }
-}
-
-// Single Game Page Styling
-#single-game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1em;
-
-    .layout {
-        width: 90%;
-    }
-
-    .card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 1em;
-        padding: .5rem;
-        flex-wrap: wrap;
-
-        .description {
-            max-width: 100ch;
-        }
-    }
-
-    .grid-auto-flow {
-        display: grid;
-        column-gap: 1rem;
-        grid-auto-flow: column;
-        grid-auto-columns: 100px;
-        padding: .5em;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        width: 500px;
-    
-        .grid-item {
-            background-color: white;
-        }
-    }
-    
-    .snaps-inline {
-        scroll-snap-type: inline mandatory;
-        scroll-padding-inline: 1em;
-    }
-    
-    .snaps-inline > * {
-        scroll-snap-align: start;
-        outline: none;
-    }
-
-    
 }
 
 @keyframes rotation {

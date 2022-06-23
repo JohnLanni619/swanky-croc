@@ -21,6 +21,33 @@ body {
   font-family: sans-serif;
 }
 
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  background-color: rgb(43, 10, 5);
+  background-image: url("../assets/Banner.png");
+  color: white;
+  padding: 1em 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+header .logo {
+  width: 100px;
+}
+header nav {
+  display: flex;
+  -moz-column-gap: 0.75em;
+       column-gap: 0.75em;
+  align-items: center;
+}
+header nav a {
+  text-decoration: none;
+  color: white;
+}
+
 .home {
   display: flex;
   flex-direction: column;
@@ -152,34 +179,6 @@ body {
   padding: 1em;
 }
 
-header {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-  background-color: rgb(43, 10, 5);
-  background-image: url("../assets/Banner.png");
-  color: white;
-  padding: 1em 0;
-  margin-bottom: var(--row-spacing);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-header .logo {
-  width: 100px;
-}
-header nav {
-  display: flex;
-  -moz-column-gap: 0.75em;
-       column-gap: 0.75em;
-  align-items: center;
-}
-header nav a {
-  text-decoration: none;
-  color: white;
-}
-
 .button-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -229,6 +228,9 @@ header nav a {
   place-items: center;
   gap: 2.5em;
 }
+.grid a {
+  text-decoration: none;
+}
 .grid .game-card {
   display: flex;
   flex-direction: column;
@@ -258,6 +260,84 @@ header nav a {
   transition: opacity 500ms ease-in-out;
 }
 
+#single-game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1em;
+  padding-top: var(--row-spacing);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+}
+#single-game-card > * {
+  z-index: 10;
+}
+#single-game-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+#single-game-card a {
+  text-decoration: none;
+  color: var(--logo);
+}
+#single-game-card .layout {
+  width: 90%;
+}
+#single-game-card .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+}
+#single-game-card .card img {
+  aspect-ratio: 16/9;
+  box-shadow: 0px 0px 7px 1px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#single-game-card .card .description {
+  max-width: 100ch;
+  padding: 1rem;
+  color: white;
+  background-color: hsl(190deg, 51%, 9%);
+}
+#single-game-card .grid-auto-flow {
+  display: grid;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 100px;
+  padding: 0.5em;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  width: 600px;
+}
+#single-game-card .grid-auto-flow .grid-item {
+  background-color: white;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#single-game-card .snaps-inline {
+  -ms-scroll-snap-type: inline mandatory;
+      scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1em;
+}
+#single-game-card .snaps-inline > * {
+  scroll-snap-align: start;
+  outline: none;
+}
+
 .loading-container {
   display: flex;
   justify-content: center;
@@ -272,51 +352,6 @@ header nav a {
   border-radius: 500px;
   -webkit-animation: rotation 3s infinite linear;
           animation: rotation 3s infinite linear;
-}
-
-#single-game-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 1em;
-}
-#single-game-card .layout {
-  width: 90%;
-}
-#single-game-card .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -moz-column-gap: 1em;
-       column-gap: 1em;
-  padding: 0.5rem;
-  flex-wrap: wrap;
-}
-#single-game-card .card .description {
-  max-width: 100ch;
-}
-#single-game-card .grid-auto-flow {
-  display: grid;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-  grid-auto-flow: column;
-  grid-auto-columns: 100px;
-  padding: 0.5em;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  width: 500px;
-}
-#single-game-card .grid-auto-flow .grid-item {
-  background-color: white;
-}
-#single-game-card .snaps-inline {
-  -ms-scroll-snap-type: inline mandatory;
-      scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 1em;
-}
-#single-game-card .snaps-inline > * {
-  scroll-snap-align: start;
-  outline: none;
 }
 
 @-webkit-keyframes rotation {
