@@ -1,4 +1,4 @@
-# swanky-croc
+# the-gamedb
 
 This is a website that's going to essentially be a video database for all video games. Users will be able to browse the entire game collection.
 Users will also be able to search games by platform, release date, metacritic score, and other categories.
