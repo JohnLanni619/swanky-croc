@@ -1,14 +1,14 @@
-import collection from '../assets/collection.jpg';
-import platform from '../assets/platform.jpg';
-import question from '../assets/question-mark.jpg';
-import hourglass from '../assets/hourglass.jpg';
-import video from '../assets/hero-video.mp4';
-import Footer from '../components/Footer';
+import collection from "../assets/collection.jpg";
+import platform from "../assets/platform.jpg";
+import question from "../assets/question-mark.jpg";
+import hourglass from "../assets/hourglass.jpg";
+import video from "../assets/hero-video.mp4";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className='home'>
-
+    <div className="home">
       <div className="video-container">
         <div className="overlay"></div>
         <div className="video-content">
@@ -22,12 +22,14 @@ function App() {
 
       <div className="content">
         <div className="layout">
-          <div className='split-column'>
+          <div className="split-column">
             <p>
-              Here at The GameDB, our goal is to introduce to games you haven't played before. Whether it's browsing through our extensive museum of gaming history
-              and finding something that catches your eye or choosing to play our featured game of the month.
-              Each month, our users will vote for next month's game of the month! Create an account to participate in the
-              voting process.
+              Here at The GameDB, our goal is to introduce to games you haven't
+              played before. Whether it's browsing through our extensive museum
+              of gaming history and finding something that catches your eye or
+              choosing to play our featured game of the month. Each month, our
+              users will vote for next month's game of the month! Create an
+              account to participate in the voting process.
             </p>
           </div>
           <div className="game-of-the-month">
@@ -40,19 +42,19 @@ function App() {
             <h2>Browse the Collection</h2>
             <h3>Search By</h3>
             <div className="sort-by">
-              <a href='/games'>
+              <Link to="/platforms">
                 <h4>Platform</h4>
                 <img src={platform} alt="platform" />
-              </a>
-              <a href='/games'>
+              </Link>
+              <Link to="/decades">
                 <h4>Decade </h4>
                 <img src={hourglass} alt="collection" />
-              </a>
-              <a href='/games'>
+              </Link>
+              <Link to="/games">
                 <h4>All Games</h4>
                 <img src={collection} alt="collection" />
                 <div className="overlay overlay-border-radius"></div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

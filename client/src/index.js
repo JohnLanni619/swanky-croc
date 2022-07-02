@@ -5,6 +5,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import App from "./pages/App";
 import Games from "./pages/Games";
 import SingleGame from "./pages/SingleGame";
+import Platforms from "./pages/Platforms";
+import Decades from "./pages/Decades";
 import "./styles/styles.css";
 
 const client = new ApolloClient({
@@ -21,6 +23,8 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="/games" element={<Games />} />
           <Route path="/games/:id" element={<SingleGame />} />
+          <Route path="/platforms" element={<Platforms />} />
+          <Route path="/decades" element={<Decades />} />
         </Routes>
       </ApolloProvider>
     </BrowserRouter>

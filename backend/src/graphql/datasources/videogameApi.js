@@ -10,7 +10,7 @@ class videogameApi extends RESTDataSource {
     return this.get("/games", {
       key: this.context.token,
       page: pageNumber,
-      page_size: pageSize
+      page_size: pageSize,
     });
   }
 
@@ -22,7 +22,13 @@ class videogameApi extends RESTDataSource {
 
   async getScreenshots(id) {
     return this.get(`/games/${id}/screenshots`, {
-      key: this.context.token
+      key: this.context.token,
+    });
+  }
+
+  async getPlatforms() {
+    return this.get("/platforms", {
+      key: this.context.token,
     });
   }
 }
