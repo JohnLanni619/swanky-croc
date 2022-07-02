@@ -55,6 +55,24 @@ module.exports = {
       } catch (error) {
         throw error;
       }
+    },
+    platforms: async (parent, args, { dataSources }) => {
+      try {
+        const platforms = await dataSources.videogameApi.getPlatforms();
+        return {
+          count: platforms.count,
+          next: platforms.next,
+          previous: platforms.previous,
+          results: platforms.results.map( (platform) => {
+            return {
+              platform_id: platform.id,
+              platform_name: platform.name
+            }
+          })
+        }
+      } catch (error) {
+        throw error;
+      }
     }
   },
 };

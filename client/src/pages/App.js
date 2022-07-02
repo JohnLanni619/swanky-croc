@@ -40,20 +40,19 @@ function App() {
           </div>
           <div className="browse">
             <h2>Browse the Collection</h2>
-            <h3>Search By</h3>
             <div className="sort-by">
+            <Link to="/games">
+                <h4>Games</h4>
+                <img src={collection} alt="collection" />
+                <div className="overlay overlay-border-radius"></div>
+              </Link>
               <Link to="/platforms">
-                <h4>Platform</h4>
+                <h4>Platforms</h4>
                 <img src={platform} alt="platform" />
               </Link>
               <Link to="/decades">
                 <h4>Decade </h4>
                 <img src={hourglass} alt="collection" />
-              </Link>
-              <Link to="/games">
-                <h4>All Games</h4>
-                <img src={collection} alt="collection" />
-                <div className="overlay overlay-border-radius"></div>
               </Link>
             </div>
           </div>

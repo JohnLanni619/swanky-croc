@@ -40,9 +40,17 @@ module.exports = gql`
     platform_name: String
   }
 
+  type PlatformList {
+    count: Int
+    next: String
+    previous: String
+    results: [Platform]
+  }
+
   type Query {
     gamesList(page: Int, page_size: Int): GameList
     game(id: ID!): Game!
     screenshotList(id: ID!): ScreenshotList
+    platforms: PlatformList
   }
 `;
