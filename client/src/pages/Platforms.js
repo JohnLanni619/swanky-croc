@@ -29,7 +29,7 @@ export default function Platforms() {
     <main className="platform-grid">
       {data.platforms.results.map( (platform) => {
         return (
-          <div id={platform.platform_name.replaceAll(" ","-").replaceAll("/","")} className="platform-card" key={platform.platform_id}>
+          <div id={platform.platform_name.replaceAll(" ","-").replaceAll("/","").replace("3DO","pana")} className="platform-card" key={platform.platform_id}>
             <h3>{platform.platform_name}</h3>
           </div>
         )
