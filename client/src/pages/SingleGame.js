@@ -56,18 +56,11 @@ export default function SingleGame() {
         return <p>{error.message}</p>
     }
 
-    const { metacritic, released, title, website } = data.game;
+    const { title, website } = data.game;
 
     function handleCallback(childData) {
         setImage(childData)
     }
-
-    // let screenshot = document.querySelector('.grid-auto-flow')
-    // if (screenshot) {
-    //     screenshot.addEventListener("mouseleave", (event) => {
-    //         setImage(data.game.background_image_additional)
-    //     })
-    // }
 
     return (
         <>

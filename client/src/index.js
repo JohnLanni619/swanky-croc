@@ -6,6 +6,7 @@ import App from "./pages/App";
 import Games from "./pages/Games";
 import SingleGame from "./pages/SingleGame";
 import Platforms from "./pages/Platforms";
+import SinglePlatform from "./pages/SinglePlatform";
 import Decades from "./pages/Decades";
 import "./styles/styles.css";
 
@@ -24,6 +25,7 @@ root.render(
           <Route path="/games" element={<Games />} />
           <Route path="/games/:id" element={<SingleGame />} />
           <Route path="/platforms" element={<Platforms />} />
+          <Route path="/platforms/:id" element={<SinglePlatform />} />
           <Route path="/decades" element={<Decades />} />
         </Routes>
       </ApolloProvider>
