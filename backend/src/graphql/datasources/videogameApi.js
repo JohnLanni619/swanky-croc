@@ -31,6 +31,12 @@ class videogameApi extends RESTDataSource {
       key: this.context.token,
     });
   }
+
+  async getPlatformById(id) {
+    return this.get(`/platforms/${id}`, {
+      key: this.context.token,
+    });
+  }
 }
 
 module.exports = videogameApi;

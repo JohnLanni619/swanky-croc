@@ -73,6 +73,19 @@ module.exports = {
       } catch (error) {
         throw error;
       }
-    }
+    },
+    platform: async (parent, { id }, { dataSources }) => {
+      try {
+        const platform = await dataSources.videogameApi.getPlatformById(id);
+        return {
+          id: platform.id,
+          name: platform.name,
+          games_count: platform.games_count,
+          description: platform.description
+        };
+      } catch (error) {
+        throw error;
+      }
+    },
   },
 };
