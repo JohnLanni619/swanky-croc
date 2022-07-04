@@ -5,8 +5,8 @@ import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 import Loading from "./Loading";
 
 const GET_GAMES = gql`
-  query getAllGames($page: Int, $pageSize: Int) {
-    gamesList(page: $page, page_size: $pageSize) {
+  query getAllGames($page: Int, $ordering: String, $search: String) {
+    gamesList(page: $page, ordering: $ordering, search: $search) {
       count
       next_page
       previous_page
@@ -15,6 +15,7 @@ const GET_GAMES = gql`
         title
         released
         background_image
+        metacritic
       }
     }
   }
@@ -22,9 +23,14 @@ const GET_GAMES = gql`
 
 export default function GameCard() {
   let [page, setPage] = useState(1);
+  let [order, setOrder] = useState("null");
+  let [search, setSearch] = useState("pokemo");
+
   let { loading, error, data } = useQuery(GET_GAMES, {
     variables: {
-      page: page
+      page: page,
+      ordering: order,
+      search: search
     },
     notifyOnNetworkStatusChange: true,
   });
@@ -33,7 +39,7 @@ export default function GameCard() {
     <Loading />
   )
   if (error) {
-    return <p>Error :(</p>}
+    return <p>{error.message}</p>}
 
   let maxPage = Math.round(data.gamesList.count / 20)
 
@@ -78,7 +84,14 @@ export default function GameCard() {
                 style={{ backgroundImage: `url(${game.background_image})` }}
                 className="game-card"
               >
-                <h3>{game.title}</h3>
+                {game.released && 
+                  <h3>{game.title + " (" + game.released.split("-")[0] + ")"}</h3>
+                }
+                {!game.released &&
+                  <h3>{game.title}</h3>
+                }
+                
+                <span>{game.metacritic}</span>
               </div>
             </Link>
           );

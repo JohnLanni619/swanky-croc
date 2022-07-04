@@ -18,8 +18,8 @@ module.exports = gql`
   type Game {
     id: ID!
     title: String!
-    released: String!
-    background_image: String!
+    released: String
+    background_image: String
     background_image_additional: String
     website: String
     metacritic: Int
@@ -55,7 +55,7 @@ module.exports = gql`
   }
 
   type Query {
-    gamesList(page: Int, page_size: Int): GameList
+    gamesList(page: Int, ordering: String, search: String): GameList
     game(id: ID!): Game!
     screenshotList(id: ID!): ScreenshotList
     platforms: PlatformList

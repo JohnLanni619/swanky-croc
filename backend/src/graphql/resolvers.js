@@ -1,8 +1,8 @@
 module.exports = {
   Query: {
-    gamesList: async (parent, { page, page_size }, { dataSources }) => {
+    gamesList: async (parent, { page, ordering, search }, { dataSources }) => {
       try {
-        const allGames = await dataSources.videogameApi.getAllGames(page, page_size);
+        const allGames = await dataSources.videogameApi.getAllGames(page, ordering, search);
         return {
           count: allGames.count,
           next_page: allGames.next,
@@ -12,6 +12,7 @@ module.exports = {
             title: game.name,
             released: game.released,
             background_image: game.background_image,
+            metacritic: game.metacritic
           })),
         };
       } catch (error) {
