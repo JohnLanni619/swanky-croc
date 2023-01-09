@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "frontend": "cd client && npm start",
-    "backend": "cd backend/src && node app.js"
+    "backend": "cd backend/src && node app.js",
+    "install": "cd backend && npm install && cd ../client && npm install"
   },
   "repository": {
     "type": "git",
