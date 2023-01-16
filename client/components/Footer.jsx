@@ -1,9 +1,9 @@
-import '../styles/footer-styles.css';
+import styles from './Footer.module.css';
 
 export default function Footer() {
     return (
-        <footer>
-            <div className="grid-layout">
+        <footer className={styles.footer}>
+            <div className={styles['grid-layout']}>
                 <div className="col-1">
                     <div>
                         <h4>Support</h4>
@@ -30,7 +30,6 @@ export default function Footer() {
                 </div>
             </div>
             <h5>Powered by RAWG API | Built by SwankyCroc LLC</h5>
-
         </footer>
     )
 }

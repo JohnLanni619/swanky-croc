@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 import Loading from "./Loading";
 
